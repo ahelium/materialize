@@ -30,3 +30,6 @@ class MaterializeAdapter(PostgresAdapter):
         #
         # [0]: https://github.com/dbt-labs/dbt-core/blob/13b18654f03d92eab3f5a9113e526a2a844f145d/plugins/postgres/dbt/adapters/postgres/impl.py#L126-L133
         pass
+
+    def verify_database(self, database):
+        pass

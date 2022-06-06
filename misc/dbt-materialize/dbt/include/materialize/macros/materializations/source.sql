@@ -20,10 +20,7 @@
                                                 database=database,
                                                 type='source') -%}
 
-  {% set source_name %}
-      {{ mz_generate_name(identifier) }}
-  {% endset %}
-  {{ materialize__drop_source(source_name) }}
+  {{ materialize__drop_source(target_relation) }}
 
   {{ run_hooks(pre_hooks, inside_transaction=False) }}
   {{ run_hooks(pre_hooks, inside_transaction=True) }}

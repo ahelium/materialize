@@ -142,9 +142,9 @@ projects:
             SELECT * FROM (VALUES ('chicken', 'pig'), ('cow', 'horse')) _ (a, b)
 
         models/test_source.sql: |
-            {{ config(materialized='source') }}
+            {{ config(materialized='source', database='raw', pre_hook='CREATE DATABASE raw')}}
 
-            CREATE SOURCE {{ mz_generate_name('test_source') }}
+            CREATE SOURCE {{ this }}
             FROM KAFKA BROKER '{{ env_var('KAFKA_ADDR', 'localhost:9092') }}' TOPIC 'test-source'
             FORMAT BYTES
 
@@ -160,7 +160,7 @@ projects:
                 indexes=[{'columns': ['data']}]
             ) }}
 
-            CREATE SOURCE {{ mz_generate_name('test_source_index') }}
+            CREATE SOURCE {{ this }}
             FROM KAFKA BROKER '{{ env_var('KAFKA_ADDR', 'localhost:9092') }}' TOPIC 'test-source-index'
             FORMAT BYTES
 
