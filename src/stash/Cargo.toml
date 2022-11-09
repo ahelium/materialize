@@ -21,7 +21,7 @@ rusqlite = { version = "0.28.0", features = ["bundled"] }
 serde = "1.0.147"
 serde_json = "1.0.86"
 timely = { git = "https://github.com/TimelyDataflow/timely-dataflow", default-features = false }
-tokio = "1.20.2"
+tokio = "1.21.2"
 tokio-postgres = { git = "https://github.com/MaterializeInc/rust-postgres", features = [ "with-serde_json-1" ] }
 tracing = "0.1.37"
 
@@ -30,4 +30,4 @@ anyhow = "1.0.65"
 criterion = { version = "0.4.0", features = ["async_tokio"] }
 mz-postgres-util = { path = "../postgres-util" }
 tempfile = "3.2.0"
-tokio = { version = "1.20.2", features = ["macros"] }
+tokio = { version = "1.21.2", features = ["macros"] }
